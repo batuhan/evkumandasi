@@ -8,18 +8,18 @@ port = '/dev/tty.usbmodem1411',
 relays = {
   first: {
     state: false,
-    to_open: 'q',
-    to_close: 'w'
+    to_open: 'w',
+    to_close: 'q'
   },
   second: {
     state: false,
-    to_open: 'e',
-    to_close: 'r'
+    to_open: 'r',
+    to_close: 'e'
   },
   third: {
     state: false,
-    to_open: 't',
-    to_close: 'y'
+    to_open: 'y',
+    to_close: 't'
   },
 };
 

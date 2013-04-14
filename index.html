@@ -86,6 +86,8 @@ Lungo.init({
 });
 
 $$('li').tap(function() {
+    $$(this).children('.anchor').toggleClass('theme');
+    console.log($$(this).closest('a'));
     $$.ajax({
         url: '/relays',
         data: {relay: $$(this).data('bi-relay')},
