@@ -4,7 +4,7 @@ express = require('express'),
 http = require('http'),
 path = require('path'),
 app = express(),
-port = '/dev/tty.usbmodem1411',
+port = '/dev/ttyAMC0',
 relays = {
   first: {
     state: false,
