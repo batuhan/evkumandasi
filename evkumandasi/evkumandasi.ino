@@ -23,14 +23,14 @@ void loop() {
   if(serial_value == 113){ //q
     digitalWrite(giris_1_kapat, HIGH);
     digitalWrite(led, HIGH);
-    delay(2000);
+    delay(1000);
     digitalWrite(giris_1_kapat, LOW);  
     digitalWrite(led, LOW);  
   }
   else if(serial_value == 119){ // w
     digitalWrite(giris_1_ac, HIGH);
     digitalWrite(led, HIGH);
-    delay(2000); 
+    delay(1000); 
     digitalWrite(giris_1_ac, LOW); 
     digitalWrite(led, LOW);  
 
@@ -52,7 +52,7 @@ void loop() {
   else if(serial_value == 116){ // t
     digitalWrite(giris_3_kapat, HIGH);
     digitalWrite(led, HIGH);
-    delay(2000); 
+    delay(1000); 
     digitalWrite(giris_3_kapat, LOW);
     digitalWrite(led, LOW);  
 
@@ -60,7 +60,7 @@ void loop() {
   else if(serial_value == 121){ // y
     digitalWrite(giris_3_ac, HIGH);
     digitalWrite(led, HIGH);
-    delay(2000); 
+    delay(1000); 
     digitalWrite(giris_3_ac, LOW); 
     digitalWrite(led, LOW);  
   }
@@ -68,6 +68,6 @@ void loop() {
   if(serial_value != -1)
   {
     Serial.println(serial_value);
-  }    
+  }
 }
 
