@@ -38,6 +38,9 @@ function get_relay_to_close(relay){
 
 app.use(express.bodyParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+app.use(express.errorHandler());
 
 console.log("Başlatılıyor...");
 
@@ -46,7 +49,7 @@ var serialPort = new SerialPort(port, {
 }); 
 
 app.get('/', function(req, res) {
-  return res.sendfile('index.html');
+	return res.render('index', { relays: relays });
 });
 
 app.get('/relays', function(req, res){

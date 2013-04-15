@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>EvKumandası</title>
+    <meta name="description" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="cleartype" content="on">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/lungo.icon.css">
+    <link rel="stylesheet" href="components/lungo/lungo.css">
+    <link rel="stylesheet" href="components/lungo/theme.lungo.css">
+    <script type='application/javascript' src='fastclick.js'></script>
+    <script>
+    window.addEventListener('load', function() { // dokunma sonrası gecikmeyi yokedelim.
+        new FastClick(document.body);
+    }, false);
+    </script>
+</head>
+
+<body class="app">
+    <section id="main" data-transition="slide" class="active">
+     <header data-title="Ev Kumandası v0.1" class="extended">
+         <nav class="right">
+             <a href="#hakkinda" data-router="section" data-icon="info"></a>
+         </nav>
+     </header>
+     <nav class="groupbar">
+        <a href="#main-main" data-router="article" data-label="Aç/Kapa" class="active"></a>
+        <a href="#main-info" data-router="article" data-label="Bilgiler"></a>
+    </nav>
+
+    <article id="main-main" class="active list indented scroll">
+        <ul>
+            <li class="five columns" data-bi-relay="first">
+                <a href="#" class="button anchor theme" data-label="Gri Lamba"></a>
+            </li>
+            <li class="five columns" data-bi-relay="second">
+                <a href="#" class="button anchor theme" data-label="Siyah Lamba"></a>
+            </li>
+        </ul>
+        <ul>
+            <li class="ten columns" data-bi-relay="third">
+                <a href="#" class="button anchor theme" data-label="Masa LED'leri"></a>
+            </li>
+        </ul>
+    </article>
+    <article id="main-info" class="list indented">
+        <ul>
+            <li>
+                Buraya çeşitli bilgiler gelecek.
+            </li>
+        </ul>
+    </article>
+</section>
+<section id="hakkinda" data-transition="slide">
+ <header data-title="Hakkında">
+     <nav class="left">
+        <a href="#back" data-router="section" data-icon="left"></a>
+    </nav>
+</header>
+<article id="hakkinda-main" class="active list indented">
+    <ul>
+        <li>
+            Yazılım Geliştirme: Fırat Batuhan İçöz
+        </li>
+        <li>
+            Donanım Geliştirme: Koray Güngör
+        </li>
+        <li>
+            Bu uygulama MIT lisansı ile lisanslanmıştır. Kullanılan yazılım ve donanımların kendi lisansları mevcuttur.
+        </li>
+    </ul>
+</article>
+
+</section>
+<!-- Lungo - Dependencies -->
+<script src="components/quojs/quo.min.js"></script>
+<script src="components/lungo/lungo.js"></script>
+<!-- Lungo - Sandbox App -->
+<script>
+Lungo.init({
+    name: 'EvKumandası'
+});
+
+$$('li').tap(function() {
+    $$(this).children('.anchor').toggleClass('theme');
+    console.log($$(this).closest('a'));
+    $$.ajax({
+        url: '/relays',
+        data: {relay: $$(this).data('bi-relay')},
+        async: true,
+        success: function(response) { console.log(response) },
+        error: function(xhr, type) { console.log(xhr) }
+    });
+});
+
+</script>
+</body>
+</html>
