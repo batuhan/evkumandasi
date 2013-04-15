@@ -4,7 +4,7 @@ express = require('express'),
 http = require('http'),
 path = require('path'),
 app = express(),
-port = '/dev/ttyAMC0',
+port = '/dev/tty.usbmodem1411',
 relays = {
   first: {
     state: false,
@@ -41,7 +41,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 console.log("Başlatılıyor...");
 
-var serialPort = new SerialPort("/dev/tty.usbmodem1411", {
+var serialPort = new SerialPort(port, {
   baudrate: 9600
 }); 
 
