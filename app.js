@@ -4,7 +4,7 @@ express = require('express'),
 http = require('http'),
 path = require('path'),
 app = express(),
-port = '/dev/ttyACM01',
+port = '/dev/ttyACM0',
 relays = {
   first: {
     state: false,
